@@ -3,13 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>Proyecto Acamica Express</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,700" type="text/css">
     <link rel="stylesheet" href="/css/main.css">
-
 </head>
-<body>
+<body ng-app='appTareas'>
     <!-- Always shows a header, even in smaller screens. -->
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
@@ -24,7 +26,7 @@
 
         <main class="mdl-layout__content">
             <div class="page-content">
-                {{{body}}}
+                  <ui-view></ui-view>
             </div>
         </main>
         <footer class="mdl-mini-footer">
@@ -37,14 +39,18 @@
                     <li><img src="/images/logo-light.svg"/><a href="https://www.acamica.com/cursos/42/express">Ir al curso</a></li>
                 </ul>
             </div>
-
-
         </footer>
     </div>
-    <script src="/js/material.min.js"></script>
-    <script src="/js/jquery2.min.js"></script>
-    <script src="/js/main.js"></script>
-
-
+         <!-- Angular Material requires Angular.js Libraries -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+        <!-- Angular Material Library -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+        <script src="/js/material.min.js"></script>
+        <script src="/js/jquery2.min.js"></script>
+        <script src="/js/main.js"></script>
 </body>
 </html>

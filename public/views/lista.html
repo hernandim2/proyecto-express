@@ -1,0 +1,51 @@
+<div class="task-list mdl-card mdl-shadow--2dp">
+    <form>
+        <md-input-container class="md-block">
+          <label>Qué quieres hacer hoy...</label>
+          <input ng-model="tarea.nombre">
+        </md-input-container>
+        <md-subheader class="md-no-sticky">Elige la prioridad:</md-subheader>
+         <div>
+        <label class="radio-inline icon-pointer">
+            <input class="icon-pointer" type="radio" ng-model="tarea.prioridad" value="0"> Baja
+        </label>
+        <label class="radio-inline icon-pointer">
+            <input class="icon-pointer" type="radio" ng-model="tarea.prioridad" value="1"> Normal
+        </label>
+        <label class="radio-inline icon-pointer">
+            <input  class="icon-pointer" type="radio" ng-model="tarea.prioridad" value="2"> Alta
+        </label>
+    </div>
+         <md-button class="md-raised md-primary" ng-click="agregar()">Agregar Tarea</md-button>
+    </form>
+  <md-list-item ng-repeat="tarea in tareas | orderBy: '-prioridad' | filter:completados"  class="noright">
+    <div ng-hide = "tarea.completado">
+        <md-icon class="icon-pointer" md-svg-icon="images/up.svg"   ng-hide="tarea.prioridad==2" ng-click="masPrioridad(tarea)"></md-icon>
+        <md-icon class="icon-pointer" md-svg-icon="images/down.svg" ng-hide="tarea.prioridad==0" ng-click="menosPrioridad(tarea)" ></md-icon>
+    </div>
+    <p ng-class="{'tachado' : tarea.completado }"> Prioridad: {{prioridades[tarea.prioridad]}}</p>
+    <p ng-class="{'tachado' : tarea.completado }"> {{tarea.nombre}}</p>
+      <md-checkbox ng-class="{'md-checked' : tarea.completado }" class="md-secondary "   ng-click="seleccionado(tarea)" aria-label="Check"></md-checkbox>
+    <md-icon class="icon-pointer" md-svg-icon="images/delete.svg"  ng-click="eliminar(tarea)" ></md-icon>
+    <md-icon class="icon-pointer" ng-click="procesaObjeto(tarea)" md-svg-icon="images/edit.svg"></md-icon>
+  </md-list-item>
+
+  <div class="mdl-card__actions mdl-grid">
+        <div class="mdl-cell mdl-cell--7-col">
+            <span class="task-filter" ng-model="completados" ng-click="completados = ''"><a href="#">Todas</a></span>
+            <span class="task-filter" ng-model="completados" ng-click="completados = false"><a href="#">Pendientes</a></span>
+            <span class="task-filter" ng-model="completados" ng-click="completados = true"><a href="#">Completas</a></span>
+        </div>
+    </div>
+  
+  <!--  <div class="mdl-card__actions mdl-grid">
+        <div class="mdl-cell mdl-cell--5-col">
+            <span class="pending-task-count">{{ pendientes }}</span> tareas pendientes
+        </div>
+        <div class="mdl-cell mdl-cell--7-col">
+            <span class="task-filter {{#ifview "todas"}}active{{/ifview}}"><a href="/">Todas</a></span>
+            <span class="task-filter {{#ifview "pendientes"}}active{{/ifview}}"><a href="/pendientes">Pendientes</a></span>
+            <span class="task-filter {{#ifview "completas"}}active{{/ifview}}"><a href="/completas">Completas</a></span>
+        </div>
+    </div>-->
+</div>

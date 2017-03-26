@@ -34,6 +34,9 @@
 .footer_links {
 
 }
+.icon-pointer{
+    cursor: pointer;
+}
 .mdl-mini-footer__link-list img {
     height: 18px;
     margin-right: 5px;
@@ -71,7 +74,16 @@
     text-decoration: line-through;
     color: rgba(0,0,0,0.24);
 }
-
+.tachado{
+     text-decoration: line-through;
+    color: rgba(0,0,0,0.24);
+}
+.no-tachado{
+    color: rgba(0,0,0,.54);
+    font-size: 12px;
+    font-weight: 100;
+    text-decoration: none;
+}
 /* El menu de abajo */
 /* Las acciones de las tareas son mas chicas*/
 .task-list .mdl-card__actions, .task-list .mdl-card__actions a  {
@@ -90,3 +102,4 @@
     border: 1px solid;
     border-color: rgba(0,0,0,0.2);
 }
+

@@ -1,0 +1,23 @@
+<div class="task-list mdl-card mdl-shadow--2dp">
+    <form>
+    <h3>Edita la tarea</h3>
+        <md-input-container class="md-block">
+          <input ng-model="tarea.nombre">
+        </md-input-container>
+        <md-subheader class="md-no-sticky">Elige la prioridad:</md-subheader>
+         <div>
+        <label class="radio-inline">
+            <input type="radio" ng-model="tarea.prioridad" value="0"> Baja
+        </label>
+        <label class="radio-inline">
+            <input type="radio" ng-model="tarea.prioridad" value="1"> Normal
+        </label>
+        <label class="radio-inline">
+            <input type="radio" ng-model="tarea.prioridad" value="2"> Alta
+        </label>
+    </div>
+         <md-button class="md-raised md-primary" ng-click="actualizar(tarea)">Actualizar</md-button>
+         <md-button class="md-raised md-danger" ng-click="eliminar(tarea)">Eliminar</md-button>
+    </form>
+    <a ui-sref="lista" >Regresar</a>
+</div>
